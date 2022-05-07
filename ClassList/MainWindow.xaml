@@ -1,0 +1,59 @@
+﻿<Window x:Class="ClassList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassList"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="436" Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="63*"/>
+                <ColumnDefinition Width="230*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="24" Margin="121,10,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="68" RenderTransformOrigin="1.086,4.637" KeyUp="SearchTextBox_KeyUp" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="351" Margin="10,59,0,0" VerticalAlignment="Top" Width="358" ItemsSource="{Binding Source={StaticResource class_list}}" SelectionChanged="ClassListBox_SelectionChanged" Grid.ColumnSpan="3" Grid.Row="1"/>
+            <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Right" Height="24" Margin="0,10,185,0" VerticalAlignment="Top" Width="62" Click="SearchButton_Click" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+        <StackPanel x:Name="DetailsPanel" HorizontalAlignment="Left" Height="177" Margin="400,10,0,0" VerticalAlignment="Top" Width="390">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Class ID: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding Path=class_id}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Group ID: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding Path=group_id}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Day: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding Path=day}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Start: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding Path=start}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="End: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding end}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Room: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+                <Label Content="{Binding Path=room}"/>
+            </StackPanel>
+        </StackPanel>
+        <ComboBox x:Name="AttributeBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="80" DropDownOpened="AttributeBox_DropDownOpened">
+            <Label Content="Class ID"></Label>
+            <Label Content="Group ID"></Label>
+            <Label Content="Day"></Label>
+            <Label Content="Room"></Label>
+        </ComboBox>
+        <ListBox x:Name="SearchListBox" HorizontalAlignment="Left" Height="100" Margin="400,187,0,0" VerticalAlignment="Top" Width="390" SelectionChanged="SearchListBox_SelectionChanged"/>
+
+    </Grid>
+</Window>

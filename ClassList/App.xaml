@@ -1,0 +1,15 @@
+﻿<Application x:Class="ClassList.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClassList"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <local:Classes x:Key="class_controller"/>
+
+        <!-- The ObjectDataProvider Key will be refered in the controls -->
+        <ObjectDataProvider x:Key="class_list"
+                            ObjectInstance="{StaticResource class_controller}"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
+    </Application.Resources>
+</Application>
