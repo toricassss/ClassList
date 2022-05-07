@@ -132,5 +132,19 @@ namespace ClassList
         {
             DetailsPanel.DataContext = SearchListBox.SelectedItem;
         }
+
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClassListBox.Items.Clear();
+            for (int i = 0; i < classes.GetViewableList().Count; i++)
+            {
+                ClassListBox.Items.Add(classes.GetViewableList()[i]);
+            }
+        }
+
+        private void GroupButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,10 +18,10 @@
                 <ColumnDefinition Width="230*"/>
             </Grid.ColumnDefinitions>
             <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="24" Margin="121,10,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="68" RenderTransformOrigin="1.086,4.637" KeyUp="SearchTextBox_KeyUp" Grid.Row="1" Grid.ColumnSpan="2"/>
-            <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="351" Margin="10,59,0,0" VerticalAlignment="Top" Width="358" ItemsSource="{Binding Source={StaticResource class_list}}" SelectionChanged="ClassListBox_SelectionChanged" Grid.ColumnSpan="3" Grid.Row="1"/>
+            <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="351" Margin="10,59,0,0" VerticalAlignment="Top" Width="358" SelectionChanged="ClassListBox_SelectionChanged" Grid.ColumnSpan="3" Grid.Row="1"/>
             <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Right" Height="24" Margin="0,10,185,0" VerticalAlignment="Top" Width="62" Click="SearchButton_Click" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"/>
         </Grid>
-        <StackPanel x:Name="DetailsPanel" HorizontalAlignment="Left" Height="177" Margin="400,10,0,0" VerticalAlignment="Top" Width="390">
+        <StackPanel x:Name="DetailsPanel" HorizontalAlignment="Left" Height="207" Margin="400,10,0,0" VerticalAlignment="Top" Width="390">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Class ID: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
                 <Label Content="{Binding Path=class_id}"/>
@@ -46,6 +46,7 @@
                 <Label Content="Room: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
                 <Label Content="{Binding Path=room}"/>
             </StackPanel>
+            <Button x:Name="GroupButton" Content="Show All Groups" Height="26" Width="122" Click="GroupButton_Click"/>
         </StackPanel>
         <ComboBox x:Name="AttributeBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="80" DropDownOpened="AttributeBox_DropDownOpened">
             <Label Content="Class ID"></Label>
@@ -53,7 +54,8 @@
             <Label Content="Day"></Label>
             <Label Content="Room"></Label>
         </ComboBox>
-        <ListBox x:Name="SearchListBox" HorizontalAlignment="Left" Height="100" Margin="400,187,0,0" VerticalAlignment="Top" Width="390" SelectionChanged="SearchListBox_SelectionChanged"/>
+        <ListBox x:Name="SearchListBox" HorizontalAlignment="Left" Height="100" Margin="400,235,0,0" VerticalAlignment="Top" Width="390" SelectionChanged="SearchListBox_SelectionChanged"/>
+        <Button x:Name="ShowButton" Content="ShowAllClass" HorizontalAlignment="Left" Height="24" Margin="305,0,0,0" VerticalAlignment="Top" Width="73" Click="ShowButton_Click"/>
 
     </Grid>
 </Window>
