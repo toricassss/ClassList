@@ -23,11 +23,14 @@ namespace ClassList
     {
         private Classes classes;
         private Groups groups;
+        private Students students;
         public MainWindow()
         {
             InitializeComponent();
             classes = (Classes)Application.Current.FindResource("class_controller");
             groups = (Groups)Application.Current.FindResource("group_controller");
+            students = (Students)Application.Current.FindResource("student_controller");
+            ShowButton.Visibility = Visibility.Collapsed;
         }
 
         private void ClassListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -162,7 +165,7 @@ namespace ClassList
                     }
                 }
             }
-            else
+            else if (Search_List_selected_class != null)
             {
                 int required_group_id = Search_List_selected_class.group_id;
                 for (int i = 0; i < groups.GetViewableList().Count; i++)
@@ -172,6 +175,34 @@ namespace ClassList
                         SearchListBox.Items.Add(groups.GetViewableList()[i]);
                     }
                 }
+            }
+            else 
+            {
+                MessageBox.Show("There is no class selected!");
+            }
+        }
+
+        private void LogButton_Click(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Student> student_list = students.GetViewableList();
+            String student_id = String.Concat(LogTextBox.Text.Where(c => !Char.IsWhiteSpace(c)));
+            if (student_id.Count() != 0)
+            {
+                for (int i = 0; i < student_list.Count; i++)
+                {
+                    if (student_list[i].student_id == Convert.ToInt64(student_id))
+                    {
+                        MessageBox.Show("Log on successfully!");
+                        if (student_list[i].category == "Masters")
+                        {
+                            ShowButton.Visibility = Visibility.Visible;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your student ID entered!");
             }
         }
     }

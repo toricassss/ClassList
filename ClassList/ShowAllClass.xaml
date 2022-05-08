@@ -56,6 +56,9 @@
         </ComboBox>
         <ListBox x:Name="SearchListBox" HorizontalAlignment="Left" Height="100" Margin="400,235,0,0" VerticalAlignment="Top" Width="390" SelectionChanged="SearchListBox_SelectionChanged"/>
         <Button x:Name="ShowButton" Content="ShowAllClass" HorizontalAlignment="Left" Height="24" Margin="305,0,0,0" VerticalAlignment="Top" Width="73" Click="ShowButton_Click"/>
+        <TextBox x:Name="LogTextBox" HorizontalAlignment="Left" Height="22" Margin="543,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="IDTextBox" HorizontalAlignment="Left" Height="22" Margin="451,379,0,0" TextWrapping="Wrap" Text="Student ID" VerticalAlignment="Top" Width="92"/>
+        <Button x:Name="LogButton" Content="Log on" HorizontalAlignment="Left" Height="22" Margin="647,379,0,0" VerticalAlignment="Top" Width="65" Click="LogButton_Click"/>
 
     </Grid>
 </Window>
