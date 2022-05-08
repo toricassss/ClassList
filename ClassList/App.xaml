@@ -11,5 +11,12 @@
                             ObjectInstance="{StaticResource class_controller}"
                             MethodName="GetViewableList">
         </ObjectDataProvider>
+        <local:Groups x:Key="group_controller"/>
+
+        <!-- The ObjectDataProvider Key will be refered in the controls -->
+        <ObjectDataProvider x:Key="group_list"
+                            ObjectInstance="{StaticResource group_controller}"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
     </Application.Resources>
 </Application>

@@ -46,7 +46,7 @@
                 <Label Content="Room: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
                 <Label Content="{Binding Path=room}"/>
             </StackPanel>
-            <Button x:Name="GroupButton" Content="Show All Groups" Height="26" Width="122" Click="GroupButton_Click"/>
+            <Button x:Name="GroupButton" Content="Show All Groups Related" Height="26" Width="161" Click="GroupButton_Click"/>
         </StackPanel>
         <ComboBox x:Name="AttributeBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="80" DropDownOpened="AttributeBox_DropDownOpened">
             <Label Content="Class ID"></Label>

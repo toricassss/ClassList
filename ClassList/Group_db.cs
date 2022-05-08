@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClassList
 {
-    abstract public class Class_db
+    abstract public class Group_db
     {
         private const string db = "gmis";
         private const string user = "gmis";
@@ -27,9 +27,9 @@ namespace ClassList
             return conn;
         }
 
-        public static ObservableCollection<Class> LoadAll()
+        public static ObservableCollection<Group> LoadAll()
         {
-            ObservableCollection<Class> classes = new ObservableCollection<Class>();
+            ObservableCollection<Group> groups = new ObservableCollection<Group>();
 
             // Declare a data reader
             MySqlDataReader? rdr = null;
@@ -42,7 +42,7 @@ namespace ClassList
                 conn.Open();
 
                 // 1. Instantiate a new command with a query and connection
-                MySqlCommand cmd = new MySqlCommand("select class_id, group_id, day, start, end, room from class", conn);
+                MySqlCommand cmd = new MySqlCommand("select group_id, group_name from studentGroup", conn);
 
                 // 2. Call Execute reader to get query results
                 rdr = cmd.ExecuteReader();
@@ -50,13 +50,13 @@ namespace ClassList
                 // print the CategoryName of each record
                 while (rdr.Read())
                 {
-                    Class c = new Class { class_id = rdr.GetInt32(0), group_id = rdr.GetInt32(1), day = rdr.GetString(2), start = rdr.GetString(3), end = rdr.GetString(4), room = rdr.GetString(5)};
-                    classes.Add(c);
+                    Group g = new Group { group_id = rdr.GetInt32(0), group_name = rdr.GetString(1) };
+                    groups.Add(g);
                 }
             }
-            catch (MySqlException c)
+            catch (MySqlException g)
             {
-                Console.WriteLine("Error connecting to database: " + c);
+                Console.WriteLine("Error connecting to database: " + g);
             }
             finally
             {
@@ -72,7 +72,7 @@ namespace ClassList
                     conn.Close();
                 }
             }
-            return classes;
+            return groups;
         }
     }
 }

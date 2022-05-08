@@ -22,10 +22,12 @@ namespace ClassList
     public partial class MainWindow : Window
     {
         private Classes classes;
+        private Groups groups;
         public MainWindow()
         {
             InitializeComponent();
             classes = (Classes)Application.Current.FindResource("class_controller");
+            groups = (Groups)Application.Current.FindResource("group_controller");
         }
 
         private void ClassListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -144,7 +146,33 @@ namespace ClassList
 
         private void GroupButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Class Class_List_selected_class = new Class();
+            Class Search_List_selected_class = new Class();
+            Class_List_selected_class = (ClassListBox.SelectedItem) as Class;
+            Search_List_selected_class = (SearchListBox.SelectedItem) as Class;
+            SearchListBox.Items.Clear();
+            if (Class_List_selected_class != null)
+            {
+                int required_group_id = Class_List_selected_class.group_id;
+                for (int i = 0; i < groups.GetViewableList().Count; i++)
+                {
+                    if (required_group_id == groups.GetViewableList()[i].group_id)
+                    {
+                        SearchListBox.Items.Add(groups.GetViewableList()[i]);
+                    }
+                }
+            }
+            else
+            {
+                int required_group_id = Search_List_selected_class.group_id;
+                for (int i = 0; i < groups.GetViewableList().Count; i++)
+                {
+                    if (required_group_id == groups.GetViewableList()[i].group_id)
+                    {
+                        SearchListBox.Items.Add(groups.GetViewableList()[i]);
+                    }
+                }
+            }
         }
     }
 }
