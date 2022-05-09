@@ -42,7 +42,7 @@ namespace ClassList
                 conn.Open();
 
                 // 1. Instantiate a new command with a query and connection
-                MySqlCommand cmd = new MySqlCommand("select student_id, given_name, family_name, title, campus, phone, email, category from student", conn);
+                MySqlCommand cmd = new MySqlCommand("select student_id, given_name, family_name, group_id, title, campus, phone, email, category from student", conn);
 
                 // 2. Call Execute reader to get query results
                 rdr = cmd.ExecuteReader();
@@ -50,7 +50,15 @@ namespace ClassList
                 // print the CategoryName of each record
                 while (rdr.Read())
                 {
-                    Student s = new Student { student_id = rdr.GetInt32(0), given_name = rdr.GetString(1), family_name = rdr.GetString(2), title = rdr.GetString(3), campus = rdr.GetString(4), phone = rdr.GetString(5), email = rdr.GetString(6), category = rdr.GetString(7) };
+                    Student s = new Student { student_id = rdr.GetInt32(0), given_name = rdr.GetString(1), family_name = rdr.GetString(2), title = rdr.GetString(4), campus = rdr.GetString(5), phone = rdr.GetString(6), email = rdr.GetString(7), category = rdr.GetString(8) };
+                    if (!rdr.IsDBNull(3))
+                    {
+                        s.group_id = rdr.GetString(3);
+                    }
+                    else
+                    {
+                        s.group_id = null;
+                    }
                     students.Add(s);
                 }
             }

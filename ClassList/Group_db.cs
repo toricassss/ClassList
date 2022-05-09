@@ -50,7 +50,7 @@ namespace ClassList
                 // print the CategoryName of each record
                 while (rdr.Read())
                 {
-                    Group g = new Group { group_id = rdr.GetInt32(0), group_name = rdr.GetString(1) };
+                    Group g = new Group { group_id = rdr.GetString(0), group_name = rdr.GetString(1) };
                     groups.Add(g);
                 }
             }

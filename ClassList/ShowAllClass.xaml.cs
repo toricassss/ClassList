@@ -75,7 +75,7 @@ namespace ClassList
                 { 
                     for (int i = 0; i < class_list.Count; i++)
                     {
-                        if (class_list[i].group_id == Convert.ToInt64(group_id))
+                        if (class_list[i].group_id == group_id)
                         {
                             SearchListBox.Items.Add(class_list[i]);
                         }
@@ -156,7 +156,7 @@ namespace ClassList
             SearchListBox.Items.Clear();
             if (Class_List_selected_class != null)
             {
-                int required_group_id = Class_List_selected_class.group_id;
+                string required_group_id = Class_List_selected_class.group_id;
                 for (int i = 0; i < groups.GetViewableList().Count; i++)
                 {
                     if (required_group_id == groups.GetViewableList()[i].group_id)
@@ -167,7 +167,7 @@ namespace ClassList
             }
             else if (Search_List_selected_class != null)
             {
-                int required_group_id = Search_List_selected_class.group_id;
+                string required_group_id = Search_List_selected_class.group_id;
                 for (int i = 0; i < groups.GetViewableList().Count; i++)
                 {
                     if (required_group_id == groups.GetViewableList()[i].group_id)

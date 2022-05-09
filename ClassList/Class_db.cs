@@ -50,7 +50,15 @@ namespace ClassList
                 // print the CategoryName of each record
                 while (rdr.Read())
                 {
-                    Class c = new Class { class_id = rdr.GetInt32(0), group_id = rdr.GetInt32(1), day = rdr.GetString(2), start = rdr.GetString(3), end = rdr.GetString(4), room = rdr.GetString(5)};
+                    Class c = new Class { class_id = rdr.GetInt32(0), day = rdr.GetString(2), start = rdr.GetString(3), end = rdr.GetString(4), room = rdr.GetString(5)};
+                    if (!rdr.IsDBNull(1))
+                    {
+                        c.group_id  = rdr.GetString(1);
+                    }
+                    else
+                    {
+                        c.group_id = null;
+                    }
                     classes.Add(c);
                 }
             }

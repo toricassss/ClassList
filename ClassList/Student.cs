@@ -11,7 +11,7 @@ namespace ClassList
         public int student_id { get; set; }
         public string? given_name { get; set; }
         public string? family_name { get; set; }
-        /*public int group_id { get; set; }*/
+        public string? group_id { get; set; }
         public string? title { get; set; }
         public string? campus { get; set; }
         public string? phone { get; set; }
@@ -20,7 +20,7 @@ namespace ClassList
 
         public override string ToString()
         {
-            return $"student_id: {student_id}, given_name: {given_name}, family_name: {family_name}， title: {title}, campus: {campus}, phone: {phone}, email: {email}, category: {category}";
+            return $"student_id: {student_id}, given_name: {given_name}, family_name: {family_name}，group_id:{group_id}, title: {title}, campus: {campus}, phone: {phone}, email: {email}, category: {category}";
         }
     }
 }

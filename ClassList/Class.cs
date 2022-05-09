@@ -9,7 +9,7 @@ namespace ClassList
     public class Class
     {
         public int class_id { get; set; }
-        public int group_id { get; set; }
+        public string? group_id { get; set; }
         public string? day { get; set; }
         public string? start { get; set; }
         public string? end { get; set; }
