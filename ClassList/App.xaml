@@ -25,5 +25,9 @@
                             ObjectInstance="{StaticResource student_controller}"
                             MethodName="GetViewableList">
         </ObjectDataProvider>
+        <ObjectDataProvider x:Key="meeting_list"
+                            ObjectInstance="{StaticResource meeting_controller}"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
     </Application.Resources>
 </Application>
